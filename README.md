@@ -65,7 +65,7 @@ Before starting, ensure you have the following:
 
 ## Folder Structure
 
-```json
+```plaintext
 /ussd tutorial
     README.md
     index.ts
@@ -75,6 +75,34 @@ Before starting, ensure you have the following:
 - `README.md`: Documentation for the tutorial.
 - `index.ts`: Contains the main application logic for handling USSD requests and responses.
 - `models/`: Directory for defining MongoDB schemas and models used in the application.
+
+## Testing with Ngrok
+
+To test your USSD application locally, you can use [Ngrok](https://ngrok.com/) to expose your local server to the internet. Follow these steps to set up a temporary callback URL:
+
+1. Install Ngrok if you haven't already. You can download it from [Ngrok's official website](https://ngrok.com/download).
+
+2. Start your local development server on port `8000`:
+
+   ```bash
+   bun run start
+   ```
+
+3. In a new terminal, run the following Ngrok command to expose your local server:
+
+   ```bash
+   ngrok http 8000
+   ```
+
+4. Ngrok will generate a public URL that tunnels to your local server. It will look something like this:
+
+   ```plaintext
+   https://<random-subdomain>.ngrok.io
+   ```
+
+5. Use this public URL as the callback URL in your USSD gateway configuration for testing.
+
+This allows you to test your USSD application with real-world requests while running it locally.
 
 ## Contributing
 
